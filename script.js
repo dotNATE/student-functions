@@ -1,8 +1,24 @@
-const wcc = require('world-countries-capitals')
-
 const students = [
     'Nate', 'Izzy', 'Kash', 'Imy', 'Nick', 'Sobia', 'Toby', 'Maria'
 ]
+
+const wcc = require('world-countries-capitals')
+
+function getBreakoutNames(num = 8) {
+    let result = [], rand
+
+    for (let i = num;i; i--) {
+        let name = wcc.getRandomCountry()
+        name = name[0].toUpperCase() + name.slice(1)
+        result.push(name)
+    }
+    rand = Math.floor(Math.random() * num)
+    console.log(rand)
+    if (rand > Math.round(num / 10)) {
+        result[rand] = (rand % 2) ? "Nuneaton" : "Melksham"
+    }
+    return result
+}
 
 function scrumVolunteerPicker(students) {
     let num = Math.floor(Math.random() * students.length)
@@ -33,21 +49,6 @@ function studentPairPicker(array) {
     return splitArrayIntoPairs(shuffled)
 }
 
-function getBreakoutNames(num = 8) {
-    let result = [], rand
-
-    for (let i = num;i; i--) {
-        let name = wcc.getRandomCountry()
-        name = name[0].toUpperCase() + name.slice(1)
-        result.push(name)
-    }
-    rand = Math.floor(Math.random() * num)
-    console.log(rand)
-    if (rand > Math.round(num / 10)) {
-        result[rand] = (rand % 2) ? "Nuneaton" : "Melksham"
-    }
-    return result
-}
-
-// console.log(scrumVolunteerPicker(students))
-console.log(getBreakoutNames(14))
+module.exports.studentPairPicker = studentPairPicker
+module.exports.scrumVolunteerPicker = scrumVolunteerPicker
+module.exports.getBreakoutNames = getBreakoutNames
