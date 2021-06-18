@@ -1,12 +1,9 @@
-const students = [
-    'Nate', 'Izzy', 'Kash', 'Imy', 'Nick', 'Sobia', 'Toby', 'Maria'
-]
+const students = ['Nate', 'Izzy', 'Imy', 'Sobia', 'Maria', 'Nick', 'Toby', 'Paul', 'Kash', 'Emma', 'Helen', 'Matt', 'Sam', 'Xandice', 'Katy', 'Nathan', 'Ash', 'Charlie', 'Rayna', 'Mike']
 
 const wcc = require('world-countries-capitals')
 
 function getBreakoutNames(num = 8) {
     let result = [], rand
-
     for (let i = num;i; i--) {
         let name = wcc.getRandomCountry()
         name = name[0].toUpperCase() + name.slice(1)
@@ -39,7 +36,7 @@ function shuffleArray(students) {
 function splitArrayIntoPairs(array) {
     let result = []
     for (;array.length / 2;) {
-        result.push(students.splice(0, 2))
+        result.push(array.splice(0, 2))
     }
     return result
 }
@@ -52,3 +49,4 @@ function studentPairPicker(array) {
 module.exports.studentPairPicker = studentPairPicker
 module.exports.scrumVolunteerPicker = scrumVolunteerPicker
 module.exports.getBreakoutNames = getBreakoutNames
+module.exports.marchCohort = students
