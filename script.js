@@ -10,7 +10,6 @@ function getBreakoutNames(num = 8) {
         result.push(name)
     }
     rand = Math.floor(Math.random() * num)
-    console.log(rand)
     if (rand > Math.round(num / 10)) {
         result[rand] = (rand % 2) ? "Nuneaton" : "Melksham"
     }
